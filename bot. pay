@@ -1,0 +1,14 @@
+import requests
+
+TOKEN = "7715584241:AAErSI6iGi-kpD5IjmULtM4fvnzTRgzdMlE"
+CHAT_ID = "7701851695"
+
+def send_message(message):
+    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+    data = {
+        "chat_id": CHAT_ID,
+        "text": message
+    }
+    requests.post(url, data=data)
+
+send_message("🚀 Your bot is now connected!")
