@@ -1,0 +1,22 @@
+import telebot
+
+# Replace with your actual bot token
+BOT_TOKEN = '7715584241:AAErSI6iGi-kpD5IjmULtM4fvnzTRgzdMlE'
+CHAT_ID = '7701851695'
+
+bot = telebot.TeleBot(BOT_TOKEN)
+
+# Command: /start
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    bot.reply_to(message, "🤖 Welcome! Quotex Signal Bot is active.")
+
+# Sample signal sending function
+def send_signal(signal_text):
+    bot.send_message(CHAT_ID, f"📢 Signal: {signal_text}")
+
+# Testing automatic signal
+send_signal("BUY EUR/USD 🔼")
+
+# Start the bot
+bot.polling()
